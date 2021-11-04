@@ -1,0 +1,52 @@
+<!--<!DOCTYPE html>-->
+<html lang = 'en-US'>
+
+<head>
+    <title>PacMan Factory</title>
+	<link rel='icon' href='images/pacman1.png'/>
+    <script src="./pacmen.js"></script>
+	<link rel='stylesheet' href = './style.css'/>
+</head>
+
+<body ondragend="/*event.preventDefault();*/" ondrop="" ondragover="event.preventDefault();" onclick='if (event.target == this) makeOne(event, new Vector(event.clientX, event.clientY));'>
+	<div>
+		<fieldset draggable='false' ondrag="startDrag(this, event);">
+			<!-- These are used to show tick-marks on the sliders (most browsers have different ways of displaying this than others) -->
+			<datalist id='scale'>
+				<option value=100></option>
+				<option value=200 label='Normal'></option>
+			</datalist>
+			<datalist id='speeds'>
+				<option value=1 label=Normal></option>
+			</datalist>
+			<legend>Options</legend>
+
+			<label for='size-slider'>Size&Tab;</label>
+			<input type="range" min=10 max=500 value=200 step=10 title="Size" id='size-slider' list='scale'/><br/>
+			<label>Speed&Tab;</label>
+			<input type='range' min=0 max=10 step=.1 value=1 id='speed-slider' list='speeds'/>
+			<!-- This is not implemented yet
+				
+				<select id='behavior'>
+				<option value='normal'>
+					Standard Behavior
+				</option><option value='follow-mouse'>
+					Follow Mouse Cursor
+				</option>
+			</select>-->
+			<hr/>
+			<p>Click anywhere outside this box to add another!</p>
+			<!-- This is not implemented yet
+
+				<input type=checkbox id=confine-to-rect/>
+				<label for=confine-to-rect>Confine to Rect</label>
+				<img class='rect' draggable=true/>
+				<img class='rect rotate-90' draggable=true/>
+				<img class='rect rotate-180' draggable=true"/>
+				<img class='rect rotate-270' draggable=true/>
+			-->
+		</fieldset>
+	</div>
+    <div id='game'></div>
+</body>
+</html>

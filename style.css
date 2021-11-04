@@ -1,0 +1,49 @@
+body {
+	overflow: hidden;
+	background-color: #14495E;
+	color: white;
+}
+div#game {
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+form, fieldset {
+	background-color: grey;
+}
+img.pacman {
+	position: absolute;
+	width: 200px;
+}
+fieldset {
+	border: none;
+	background-color: #0004;
+	width: 10em;
+	contain: layout paint;
+	position: fixed;
+}
+fieldset, fieldset>legend {
+	border-radius: 15pt;
+}
+fieldset>legend {
+	background-color: #0004;
+	font-size: large;
+	cursor: move;
+}
+input[type='range'] {
+	color: white;
+}
+/* Not yet added */
+.rect {
+	position: absolute;
+	contain: content;
+}
+.rotate-90 {
+	transform: rotate(90deg);
+}
+.rotate-180 {
+	transform: rotate(180deg);
+}
+.rotate-270 {
+	transform: rotate(270deg);
+}

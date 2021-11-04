@@ -134,7 +134,7 @@ class PacMan {
 				if ((this.velocity.y < 0 && this.position.y - 50 <= 0) || (this.velocity.y > 0 && this.position.y + 50 >= innerHeight))
 				this.velocity.y *= -1;
 				this.element.style.transform = `/*scaleY(${this.velocity.x > 0 ? 1 : -1})*/ rotate(${Math.atan2(this.velocity.y, this.velocity.x)}rad)`;
-				this.element.src = `images/pacman${Math.floor((this.frame += .5) % 2 + 1)}.png`;
+				this.element.src = `images/PacMan${Math.floor((this.frame += .5) % 2 + 1)}.png`;
 				break;
 			case 'follow-mouse':
 				break;

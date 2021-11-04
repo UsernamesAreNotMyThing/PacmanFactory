@@ -1,10 +1,6 @@
-onload = () => {
-	document.getElementById('game').onclick = makeOne;
-};
-/** @deprecated */
-let direction = 0;
-/** @type {PacMan[]} */
-const pacMen = []; // This array holds all the Pac-Men
+/** This array holds all the Pac-Men
+ *  @type {PacMan[]} */
+const pacMen = [];
 
 class Vector {
 	constructor(x = 0, y = 0) {
@@ -53,32 +49,6 @@ class Vector {
 			this.x -= dx; this.y -= dx;
 		} return this;
 	}
-	get sqrMagnitude() { return this.x * this.x + this.y * this.y; }
-	get magnitude() { return Math.hypot(this.x, this.y); }
-	normalize() {
-		const len = this.magnitude;
-		this.x /= len; this.y /= len;
-		return this;
-	}
-	get normalized() {
-		const len = this.magnitude;
-		return new Vector(this.x / len, this.y / len);
-	}
-	get normalizedX() { return this.x / this.magnitude; }
-	get normalizedY() { return this.y / this.magnitude; }
-	/** `(0, 0)` */
-	static get zero() { return new Vector(0, 0); }
-	/** `(1, 1)` */
-	static get one() { return new Vector(1, 1); }
-	/** `(-1, 0)` */
-	static get left() { return new Vector(-1, 0); }
-	/** `(1, 0)` */
-	static get right() { return new Vector(1, 0); }
-	/** `(0, 1)` */
-	static get up() { return new Vector(0, 1); }
-	/** `(0, -1)` */
-	static get down() { return new Vector(0, -1); }
-	static random(scale) { return new Vector(Math.random() * scale, Math.random() * scale); }
 	
 	toString() { return `(${this.x}, ${this.y})`; }
 	/**
@@ -90,16 +60,14 @@ class Vector {
 	}
 	/** Subtract
 	 * @param {Vector} a
-	 * @param {Vector} b
-	 */
+	 * @param {Vector} b*/
 	static subtract(a, b) {
 		return new Vector(a.x - b.x, a.y - b.y);
 	}
   /** Multiplies
    * @param {Vector} a 
    * @param {Vector | number | {x: number; y: number;}} b 
-   * @returns A new vector
-   */
+   * @returns A new vector*/
 	static multiply(a, b) {
 		if (b instanceof Vector || (typeof b == 'object' && 'x' in b && 'y' in b))
 			return new Vector(a.x * b.x, a.y * b.y);
@@ -109,14 +77,13 @@ class Vector {
 	/** Divides
 	* @param {Vector} a
 	* @param {Vector | number} b
-	*/
+	@returns A new vector were the `x` and `y` values have been divided by `b`*/
 	static divide(a, b) {
 		if (b instanceof Vector)
 			return new Vector(a.x / b.x, a.y / b.y);
 		else return new Vector(a.x / b, a.y / b);
 	}
-	/**
-	 * @param {Vector} a
+	/** @param {Vector} a
 	 * @param {Vector} b
 	 * @returns Are the vectors equal?
 	 */
@@ -138,7 +105,7 @@ class PacMan {
 		this.velocity = new Vector(Math.random() * speed, Math.random() * speed);
 		this.element = document.createElement('img');
 		this.element.className = 'pacman';
-		this.element.src = 'images/pacman1.png';
+		this.element.src = 'images/PacMan1.png';
 		this.element.style.left	= `${this.position.x}px`;
 		this.element.style.top	= `${this.position.y}px`;
 		document.body.append(this.element);

@@ -2,13 +2,13 @@
 <html lang = 'en-US'>
 
 <head>
-    <title>PacMan Factory</title>
-	<link rel='icon' href='images/pacman1.png'/>
-    <script src="./pacmen.js"></script>
+	<title>PacMan Factory</title>
+	<link rel='icon' href='images/PacMan1.png'/>
+	<script src="./pacmen.js"></script>
 	<link rel='stylesheet' href = './style.css'/>
 </head>
 
-<body ondragend="/*event.preventDefault();*/" ondrop="" ondragover="event.preventDefault();" onclick='if (event.target == this) makeOne(event, new Vector(event.clientX, event.clientY));'>
+<body ondragend="" ondrop="" ondragover="event.preventDefault();" onclick='if (event.target == this) makeOne(event, new Vector(event.clientX, event.clientY));'>
 	<div>
 		<fieldset draggable='false' ondrag="startDrag(this, event);">
 			<!-- These are used to show tick-marks on the sliders (most browsers have different ways of displaying this than others) -->
